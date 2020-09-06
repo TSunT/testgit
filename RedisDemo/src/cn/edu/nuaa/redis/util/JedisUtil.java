@@ -14,7 +14,7 @@ public class JedisUtil {
         Properties properties = new Properties();
         try {
             properties.load(JedisUtil.class.getClassLoader().getResourceAsStream("jedis.properties"));
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
