@@ -1,6 +1,5 @@
 package cn.edu.nuaa.redis.test;
 
-import org.junit.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -11,7 +10,6 @@ public class JedisTest {
     /**
      * 快速入门String操作
      */
-    @Test
     public void test1(){
         //1.获取连接
         Jedis jedis = new Jedis("localhost", 6379);
@@ -25,13 +23,12 @@ public class JedisTest {
     /*
         hash操作
      */
-    @Test
     public void test2(){
         //1.获取连接
         Jedis jedis = new Jedis("localhost", 6379);
         //2.操作
-        jedis.hset("myhash","username","tim");
-        jedis.hset("myhash","age","23");
+        jedis.hset("myhash","username","tim cook");
+        jedis.hset("myhash","age","58");
         jedis.hset("myhash","gender","male");
 
         System.out.println(jedis.hget("myhash","username"));
@@ -45,7 +42,6 @@ public class JedisTest {
         jedis.close();
     }
 
-    @Test
     public void testpool(){
         JedisPool jedisPool = new JedisPool("localhost", 6379);
         Jedis resource = jedisPool.getResource();
